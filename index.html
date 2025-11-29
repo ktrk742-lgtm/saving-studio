@@ -5,130 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>節約スタジオ｜無理なく続く、お金の付き合い方</title>
 
-  <!-- お好みでフォント（なくてもOK） -->
+  <!-- フォント -->
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
 
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="common.css" />
+
+  <!-- index.html 個別のスタイル（ヒーロー・カードなど） -->
   <style>
-    :root {
-      --bg-main: #fff9e6;      /* やわらかいクリーム色 */
-      --accent:  #f4a259;      /* 暖かいオレンジ */
-      --accent2: #6bbe92;      /* やさしいグリーン */
-      --text-main: #333333;
-      --text-sub:  #666666;
-      --card-bg:   #ffffff;
-      --border-soft: #f1e2c6;
-      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
-      --radius-large: 24px;
-      --radius-medium: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.8;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* レイアウトの最大幅 */
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    /* ===== ヘッダー ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 249, 230, 0.9);
-      border-bottom: 1px solid rgba(241, 226, 198, 0.7);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 20% 20%, #ffe6bf, #f4a259);
-      box-shadow: 0 4px 12px rgba(244, 162, 89, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .logo-text-main {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      color: var(--text-sub);
-    }
-
-    nav {
-      display: flex;
-      gap: 18px;
-      font-size: 14px;
-    }
-
-    nav a {
-      padding: 4px 0;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-      transition: width 0.2s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .header-cta {
-      display: none; /* スマホでは非表示、PCで後から使いたくなったら調整 */
-    }
-
     /* ===== ヒーローセクション ===== */
     .hero {
       padding: 40px 0 48px;
@@ -212,7 +99,7 @@
       padding: 10px 18px;
       border-radius: 999px;
       background: linear-gradient(135deg, #f4a259, #f6b97a);
-      color: #fff;
+      color: #fff;head
       font-size: 14px;
       font-weight: 600;
       border: none;
@@ -323,7 +210,7 @@
       color: var(--text-sub);
     }
 
-    /* ===== 最新記事カード（雑誌っぽくリニューアル） ===== */
+    /* ===== 最新記事カード ===== */
     .section-latest {
       padding: 0 0 40px;
     }
@@ -374,7 +261,7 @@
 
     .card-thumb {
       position: relative;
-      padding-top: 60%; /* サムネ画像エリアの比率（16:9くらい） */
+      padding-top: 60%;
       background: radial-gradient(circle at 10% 0%, #fff7e0, #ffcfa0);
       overflow: hidden;
     }
@@ -440,21 +327,8 @@
       transform: translateY(0.5px);
     }
 
-    /* ===== フッター（仮） ===== */
-    footer {
-      border-top: 1px solid rgba(241, 226, 198, 0.8);
-      padding: 14px 0 24px;
-      font-size: 11px;
-      color: var(--text-sub);
-      text-align: center;
-    }
-
-    /* ===== スマホ対応 ===== */
+    /* ===== スマホ対応（ページ固有分） ===== */
     @media (max-width: 800px) {
-      nav {
-        display: none; /* 最初は非表示。必要ならハンバーガーメニューを追加 */
-      }
-
       .hero {
         padding: 28px 0 32px;
       }
@@ -475,16 +349,15 @@
   </style>
 </head>
 <body>
-  <!-- ===== ヘッダー ===== -->
-  <header>
-    <div class="container header-inner">
-      <div class="logo">
+  <!-- ===== ヘッダー（中身はそのまま） ===== -->
+<header>
+  <div class="container">
+    <!-- 上段：ロゴ1行目 + ナビ -->
+    <div class="header-top">
+      <a href="index.html" class="logo-row">
         <div class="logo-mark">￥</div>
-        <div>
-          <div class="logo-text-main">節約スタジオ</div>
-          <div class="logo-text-sub">無理なく続く、お金との付き合い方</div>
-        </div>
-      </div>
+        <div class="logo-text-main">節約スタジオ</div>
+      </a>
       <nav>
         <a href="#hero">ホーム</a>
         <a href="#for-beginner">はじめての方へ</a>
@@ -492,7 +365,13 @@
         <a href="#profile">プロフィール</a>
       </nav>
     </div>
-  </header>
+
+    <!-- 下段：サブコピーだけ1行で表示 -->
+    <div class="logo-text-sub">
+      無理なく続く、お金との付き合い方
+    </div>
+  </div>
+</header>
 
   <!-- ===== ヒーローセクション ===== -->
   <main>
