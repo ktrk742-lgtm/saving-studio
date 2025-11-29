@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>節約スタジオ｜無理なく続く、お金の付き合い方</title>
+
+  <!-- お好みでフォント（なくてもOK） -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-main: #fff9e6;      /* やわらかいクリーム色 */
+      --accent:  #f4a259;      /* 暖かいオレンジ */
+      --accent2: #6bbe92;      /* やさしいグリーン */
+      --text-main: #333333;
+      --text-sub:  #666666;
+      --card-bg:   #ffffff;
+      --border-soft: #f1e2c6;
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --radius-large: 24px;
+      --radius-medium: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* レイアウトの最大幅 */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ===== ヘッダー ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 249, 230, 0.9);
+      border-bottom: 1px solid rgba(241, 226, 198, 0.7);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 20%, #ffe6bf, #f4a259);
+      box-shadow: 0 4px 12px rgba(244, 162, 89, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .logo-text-main {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      padding: 4px 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      display: none; /* スマホでは非表示、PCで後から使いたくなったら調整 */
+    }
+
+    /* ===== ヒーローセクション ===== */
+    .hero {
+      padding: 40px 0 48px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(107, 190, 146, 0.15);
+      color: #2f7051;
+      margin-bottom: 12px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent2);
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw + 12px, 34px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #ffe2b8, #f4a259);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 18px;
+    }
+
+    .hero-list {
+      list-style: none;
+      margin-bottom: 22px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .hero-list li::before {
+      content: "◎";
+      font-size: 12px;
+      margin-top: 2px;
+      color: var(--accent2);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f4a259, #f6b97a);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(244, 162, 89, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(244, 162, 89, 0.55);
+      opacity: 0.95;
+    }
+
+    .btn-ghost {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px dashed rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      color: var(--text-sub);
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-top: 6px;
+    }
+
+    /* 右側イメージカード */
+    .hero-visual {
+      background: radial-gradient(circle at 10% 0%, #fff3d4, #ffe0b2);
+      border-radius: var(--radius-large);
+      padding: 20px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+    }
+
+    .hero-visual-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .hero-visual-main-text {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .hero-visual-sub-text {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(244, 162, 89, 0.35);
+    }
+
+    .hero-saving-box {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 11px;
+      box-shadow: 0 4px 12px rgba(244, 162, 89, 0.4);
+      max-width: 170px;
+    }
+
+    .hero-saving-label {
+      font-weight: 600;
+      font-size: 11px;
+      margin-bottom: 2px;
+      color: #c7742f;
+    }
+
+    .hero-saving-amount {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero-saving-caption {
+      font-size: 10px;
+      color: var(--text-sub);
+    }
+
+    /* ===== 最新記事カード（雑誌っぽくリニューアル） ===== */
+    .section-latest {
+      padding: 0 0 40px;
+    }
+
+    .section-heading {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-heading::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent2);
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card-article {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #f3e1c4;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card-article > a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    .card-article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-thumb {
+      position: relative;
+      padding-top: 60%; /* サムネ画像エリアの比率（16:9くらい） */
+      background: radial-gradient(circle at 10% 0%, #fff7e0, #ffcfa0);
+      overflow: hidden;
+    }
+
+    .card-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-label {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2f7051;
+      border: 1px solid rgba(107, 190, 146, 0.35);
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 2px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .card-desc {
+      font-size: 12.5px;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    .card-readmore {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #c7742f;
+    }
+
+    .card-readmore::after {
+      content: "›";
+      font-size: 12px;
+      transform: translateY(0.5px);
+    }
+
+    /* ===== フッター（仮） ===== */
+    footer {
+      border-top: 1px solid rgba(241, 226, 198, 0.8);
+      padding: 14px 0 24px;
+      font-size: 11px;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    /* ===== スマホ対応 ===== */
+    @media (max-width: 800px) {
+      nav {
+        display: none; /* 最初は非表示。必要ならハンバーガーメニューを追加 */
+      }
+
+      .hero {
+        padding: 28px 0 32px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero-visual {
+        order: -1; /* スマホではビジュアルを上に */
+      }
+
+      .card-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== ヘッダー ===== -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-mark">￥</div>
+        <div>
+          <div class="logo-text-main">節約スタジオ</div>
+          <div class="logo-text-sub">無理なく続く、お金との付き合い方</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#hero">ホーム</a>
+        <a href="#for-beginner">はじめての方へ</a>
+        <a href="#latest">節約アイデア</a>
+        <a href="#profile">プロフィール</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ヒーローセクション ===== -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <!-- 左側：テキストエリア -->
+        <div>
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            「我慢ばかりの節約」は、ここではしません。
+          </div>
+
+          <h1 class="hero-title">
+            毎日をちょっとだけ
+            <span class="highlight">やさしく節約</span> して、<br />
+            心もお財布も、すこし軽く。
+          </h1>
+
+          <p class="hero-lead">
+            「貯金したいのに、なかなかお金が残らない…」そんな人のための、<br />
+            無理をしない・がんばりすぎない節約アイデアをまとめたサイトです。<br />
+            一人暮らしのリアルな数字と、実体験ベースでお届けします。
+          </p>
+
+          <ul class="hero-list">
+            <li>コンビニ・外食・固定費など、今日から見直せるポイントだけを厳選</li>
+            <li>専門用語はできるだけナシ。「友だちに話す」くらいの言葉で解説</li>
+            <li>がんばりすぎず、半年〜1年後に「ちゃんと貯まってた」を目指します</li>
+          </ul>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="location.href='#latest'">
+              まずは人気の記事を見る
+            </button>
+            <button class="btn-ghost" onclick="location.href='#for-beginner'">
+              節約スタジオについて知る
+            </button>
+          </div>
+          <p class="hero-note">
+            ※まだ作成中のページもありますが、少しずつ増やしていきます。
+          </p>
+        </div>
+
+        <!-- 右側：イメージ・ボックス -->
+        <div class="hero-visual">
+          <div class="hero-visual-tag">
+            毎月の支出、なんとなくで終わらせないために。
+          </div>
+          <div class="hero-visual-main-text">
+            「気づいたらお金がない」を減らす、<br />
+            小さな工夫を集めています。
+          </div>
+          <div class="hero-visual-sub-text">
+            生活レベルを落としすぎずに、でもちゃんと貯めたい。<br />
+            そんなわがままを叶えるためのメモ帳みたいな場所です。
+          </div>
+
+          <div class="hero-badges">
+            <div class="hero-badge">一人暮らし向け</div>
+            <div class="hero-badge">固定費の見直し</div>
+            <div class="hero-badge">ゆるく続ける節約</div>
+          </div>
+
+          <div class="hero-saving-box">
+            <div class="hero-saving-label">もしも、毎月5,000円節約できたら…</div>
+            <div class="hero-saving-amount">1年で 60,000円。</div>
+            <div class="hero-saving-caption">
+              「ちょっとした旅行」「新しいPC」<br />
+              そのスタートになるかもしれません。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 最新の記事サンプル ===== -->
+    <section id="latest" class="section-latest">
+      <div class="container">
+        <h2 class="section-heading">最近の節約アイデア</h2>
+        <div class="card-list">
+          <article class="card-article">
+            <a href="#">
+              <div class="card-thumb">
+                <span class="card-label">食費</span>
+                <!-- 画像を入れる場合は下を使う -->
+                <!-- <img src="images/conveni-saving.jpg" alt="コンビニ節約のイメージ"> -->
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">
+                  コンビニ通いをやめずに、月3,000円だけ減らすコツ
+                </h3>
+                <p class="card-meta">2025.11.28 / 読了目安：5分</p>
+                <p class="card-desc">
+                  「コンビニはやめられない…」という前提で考えた、ゆるい食費の節約アイデアをまとめました。
+                </p>
+                <span class="card-readmore">続きを読む</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card-article">
+            <a href="#">
+              <div class="card-thumb">
+                <span class="card-label">固定費</span>
+                <!-- <img src="images/communication-fee.jpg" alt="通信費の見直しイメージ"> -->
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">
+                  一人暮らしの通信費、まずはここから見直してみる
+                </h3>
+                <p class="card-meta">2025.11.20 / 読了目安：7分</p>
+                <p class="card-desc">
+                  格安SIM・Wi-Fi・サブスク…全部を一気に変えなくても、「1つだけ変える」で年間数万円の違いに。
+                </p>
+                <span class="card-readmore">続きを読む</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card-article">
+            <a href="#">
+              <div class="card-thumb">
+                <span class="card-label">暮らし</span>
+                <!-- <img src="images/life-items.jpg" alt="一人暮らしアイテムのイメージ"> -->
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">
+                  買ってよかった、節約目線の一人暮らしアイテム3選
+                </h3>
+                <p class="card-meta">2025.11.10 / 読了目安：4分</p>
+                <p class="card-desc">
+                  「ケチったら逆に損だった…」を避けるために、本当に役立ったものだけを厳選して紹介します。
+                </p>
+                <span class="card-readmore">続きを読む</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 節約スタジオ / 無理せず続く、お金との付き合い方
+    </div>
+  </footer>
+</body>
+</html>
