@@ -15,15 +15,22 @@
 
   <!-- conveni.html 専用スタイル -->
   <style>
+    /* ===== レイアウト ===== */
     main {
-      padding: 10px 0 42px;
+      padding: 16px 0 42px;
+    }
+
+    /* 本文だけ左右15px余白（ヘッダーとは別） */
+    main .container {
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
     .article-card {
       background: var(--card-bg);
       border-radius: 18px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
+      border: none; /* オレンジっぽい枠線は消す */
       padding: 26px 20px 32px;
     }
 
@@ -33,16 +40,20 @@
       }
     }
 
+    /* ===== タイポ ===== */
+
+    /* 見出し1：グリーン系に統一 */
     h1 {
       font-size: 1.6rem;
       margin-top: 0;
       margin-bottom: 1.2em;
       font-weight: 700;
-      color: #f2874b;
-      border-left: 6px solid #f2874b;
+      color: #2f7051;
+      border-left: 6px solid #6bbe92;
       padding-left: 12px;
     }
 
+    /* 見出し2：そのまま緑系 */
     h2 {
       font-size: 1.3rem;
       margin-top: 2.4em;
@@ -53,14 +64,16 @@
       padding-bottom: 4px;
     }
 
+    /* 見出し3：背景とラインも緑系に変更 */
     h3 {
       font-size: 1.1rem;
       margin-top: 1.8em;
       padding: 8px 12px;
-      background: #fff5e8;
-      border-left: 5px solid #f4a259;
+      background: #e8f7ed;
+      border-left: 5px solid #6bbe92;
       border-radius: 6px;
       font-weight: 600;
+      color: #2f7051;
     }
 
     p {
@@ -80,8 +93,9 @@
       margin-bottom: 0.4em;
     }
 
+    /* 強調マーカーも黄→淡いグリーンに */
     strong {
-      background: linear-gradient(transparent 60%, #fff2b3 60%);
+      background: linear-gradient(transparent 60%, #dff2e7 60%);
       font-weight: 700;
     }
   </style>
@@ -332,5 +346,12 @@
       </article>
     </div>
   </main>
+
+  <!-- ▼ 共通フッター ▼ -->
+  <footer>
+    <div class="container">
+      &copy; 節約スタジオ / 無理なく続く、お金の付き合い方
+    </div>
+  </footer>
 </body>
 </html>
