@@ -134,55 +134,47 @@ footer {
 
 
 /* =========================
-   スマホ用レイアウト調整
+   スマホ専用のヘッダー最適化
    ========================= */
 @media (max-width: 768px) {
 
-  /* ヘッダーをコンパクトに */
-  header {
-    height: auto;              /* 固定高さをやめる */
-  }
-
-  header .container {
-    padding: 4px 10px;
-  }
-
+  /* ヘッダー全体を縦配置に */
   .header-top {
-    padding: 0;
-    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 12px;
+    height: auto !important;
   }
 
-  .logo-row {
-    padding-top: 0;
-  }
-
+  /* ロゴ */
   .site-logo {
-    height: 30px;              /* ロゴを少し小さく */
-    width: auto;
+    height: 32px;
   }
 
+  /* サブコピー（ロゴの下） */
   .logo-text-sub {
-    font-size: 11px;
-    margin: 2px 0 6px;
-    padding-left: 0;           /* 左に詰めて段落ちしにくく */
+    padding-left: 0;
+    font-size: 12px;
+    margin-bottom: 4px;
   }
 
-  /* ナビ（ホーム／はじめての方へ…）を詰める */
+  /* ナビ（ホーム／はじめての方へ／〜） */
   nav {
-    gap: 8px;
-    font-size: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    gap: 0;
   }
 
   header nav a {
-    padding: 0 6px;
-    height: 28px;
+    padding: 6px 4px;
+    height: auto;
   }
 
-  /* 固定ヘッダーにかぶらないよう本文に余白 */
+  /* 固定ヘッダーで本文が埋もれないように */
   main {
-    padding-top: 80px;         /* 足りなければ 88px くらいまで増やす */
+    padding-top: 140px !important;   /* ← これが最重要。絶対に効く。 */
   }
-
-  /* トップページのヒーローとカードも1列に*
-
 }
