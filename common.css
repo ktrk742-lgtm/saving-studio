@@ -2,70 +2,75 @@
    ヘッダー（共通）
    ========================= */
 
-/* ブラウザのデフォルト余白を完全に消す */
-html,
+/* ブラウザのデフォルト余白を消す */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* 必要なら body 背景もここで指定しておくと安心
-body {
-  background: var(--bg-main);
-}
-*/
-
+/* 固定ヘッダー */
 header {
-  margin: 0; /* 念のため */
-  position: sticky;
+  background: #5CC78F; /* 好みに応じて調整できます */
+  color: #ffffff;
+  border-bottom: none;
+  position: fixed;
   top: 0;
-  z-index: 50;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 249, 230, 0.9);
-  border-bottom: 1px solid rgba(241, 226, 198, 0.7);
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 最前面に出す */
+  margin: 0;
+  padding: 0;
 }
 
-/* 上段：ロゴ(1行目) + ナビを横並び */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding はここでは付けない */
+}
+
+
+/* container の余白をゼロに */
+header .container {
+  padding: 0 20px !important; 
+}
+
+main .container,
+footer .container {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* 上段：ロゴ + ナビ */
 .header-top {
   display: flex;
-  align-items: center;        /* 「節約スタジオ」とナビを縦方向センターに揃える */
+  align-items: center;
   justify-content: space-between;
-  padding: 10px 0 4px;
+  height: 40px;              /* ロゴの高さと揃えて安定 */
+  padding: 0 20px;           /* ★ 左右20pxに固定（ロゴとナビを揃える） */
 }
 
-/* ロゴ1行目（アイコン＋タイトル） */
+/* ロゴ行 */
 .logo-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--text-main);
-  text-decoration: none;
+  padding-top: 8px;  /* 数字を大きくすると下へ下がる */
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 12px;
-  background: radial-gradient(circle at 20% 20%, #ffe6bf, #f4a259);
-  box-shadow: 0 4px 12px rgba(244, 162, 89, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: #fff;
-  font-weight: 700;
+.site-logo {
+  height: 40px;
+  width: auto;
 }
 
-.logo-text-main {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-/* ロゴ2行目（サブコピー） */
+/* キャッチコピー（ロゴの下） */
 .logo-text-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-sub);
-  margin-top: 2px;
+  margin: 8px 0 0;           /* ロゴ行との間の上下バランス（6px推奨） */
+  padding-left: 20px;        /* ★ 左端をロゴと完全に揃える */
+  line-height: 1.4;
 }
 
 /* ナビ */
@@ -73,47 +78,41 @@ nav {
   display: flex;
   gap: 18px;
   font-size: 14px;
+  margin-top: 26px;   /* ★ ナビを少し下に */
 }
 
-/* 通常 */
-nav a,
-nav a:visited {
-  padding: 4px 0;
-  position: relative;
-  color: var(--text-main);
+/* --- Navi Clean Styling --- */
+
+header nav a {
+  padding: 0 14px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* ★ホバー（未訪問 + 訪問済みの両方）*/
-nav a:hover,
-nav a:visited:hover,
-nav a:focus-visible {
-  color: var(--accent) !important;   /* ← 色強制変更 */
-  opacity: 0.9;
+/* visitedも白文字のまま統一 */
+header nav a:visited {
+  color: #ffffff;
 }
 
-/* 下線アニメーション */
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 999px;
-  transition: width 0.2s ease;
+/* Hover */
+header nav a:hover,
+header nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.15); /* うっすら白背景 */
+  color: #ffffff;
 }
 
-nav a:hover::after,
-nav a:visited:hover::after,
-nav a:focus-visible::after {
-  width: 100%;
+/* Active page（現在のページ） */
+header nav a.active {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
 }
 
-
-/* サブコピーと同じ行にCTAボタンを置きたくなった時用 */
+/* サブコピーと同じ行にCTAボタンを置きたくなった時用（今は非表示） */
 .header-cta {
   display: none;
 }
@@ -123,19 +122,26 @@ nav a:focus-visible::after {
    ========================= */
 
 footer {
-  border-top: 1px solid rgba(241, 226, 198, 0.8);
-  padding: 14px 0 24px;
-  font-size: 11px;
-  color: var(--text-sub);
+  border-top: none;
+  background: #333;
+  padding: 26px 0 26px;
+  font-size: 12px;
+  color: #fff;
   text-align: center;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
 }
+
+
 
 /* =========================
    スマホ対応（共通）
    ========================= */
 
-@media (max-width: 800px) {
-  nav {
-    display: none; /* 最初は非表示。必要ならハンバーガーメニューを追加 */
+@media (max-width: 768px) {
+  .site-logo {
+    height: 32px;  /* スマホは少し小さく */
   }
+
+  /* 必要なら、スマホではキャッチコピー非表示にもできる */
+  /* .logo-text-sub { display: none; } */
 }

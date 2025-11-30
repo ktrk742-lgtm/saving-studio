@@ -5,29 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>節約スタジオ｜無理なく続く、お金の付き合い方</title>
 
-  <!-- フォント -->
+  <!-- 共通フォント＆CSS -->
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
-
-  <!-- 共通CSS -->
   <link rel="stylesheet" href="common.css" />
 
-  <!-- index.html 個別のスタイル（ヒーロー・カードなど） -->
+  <!-- index.html 専用スタイル（ヒーロー・カードなど） -->
   <style>
+  
     /* ===== ヒーローセクション ===== */
     .hero {
       padding: 40px 0 48px;
     }
 
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      align-items: center;
-    }
-
+	.hero-inner {
+	  display: grid;
+	  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	  gap: 32px;
+	  align-items: center;
+	}
+	
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -54,8 +53,9 @@
       margin-bottom: 12px;
     }
 
+    /* タイトルのオレンジハイライト → 緑系に変更 */
     .hero-title span.highlight {
-      background: linear-gradient(120deg, #ffe2b8, #f4a259);
+      background: linear-gradient(120deg, #d6f7e7, #6bbe92);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -95,22 +95,23 @@
       align-items: center;
     }
 
+    /* メインボタンを緑グラデに変更 */
     .btn-primary {
       padding: 10px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #f4a259, #f6b97a);
-      color: #fff;head
+      background: linear-gradient(135deg, #6bbe92, #9fdbb9);
+      color: #fff;
       font-size: 14px;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(244, 162, 89, 0.45);
+      box-shadow: 0 8px 18px rgba(107, 190, 146, 0.45);
       transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(244, 162, 89, 0.55);
+      box-shadow: 0 10px 22px rgba(107, 190, 146, 0.55);
       opacity: 0.95;
     }
 
@@ -130,9 +131,9 @@
       margin-top: 6px;
     }
 
-    /* 右側イメージカード */
+    /* 右側イメージカード（オレンジ → 緑系グラデ） */
     .hero-visual {
-      background: radial-gradient(circle at 10% 0%, #fff3d4, #ffe0b2);
+      background: radial-gradient(circle at 10% 0%, #e8f7ed, #c9efd7);
       border-radius: var(--radius-large);
       padding: 20px 18px;
       box-shadow: var(--shadow-soft);
@@ -173,12 +174,13 @@
       margin-bottom: 10px;
     }
 
+    /* バッジ枠線も緑系に */
     .hero-badge {
       font-size: 11px;
       padding: 4px 10px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(244, 162, 89, 0.35);
+      border: 1px solid rgba(107, 190, 146, 0.35);
     }
 
     .hero-saving-box {
@@ -189,7 +191,7 @@
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.9);
       font-size: 11px;
-      box-shadow: 0 4px 12px rgba(244, 162, 89, 0.4);
+      box-shadow: 0 4px 12px rgba(107, 190, 146, 0.4);
       max-width: 170px;
     }
 
@@ -197,7 +199,7 @@
       font-weight: 600;
       font-size: 11px;
       margin-bottom: 2px;
-      color: #c7742f;
+      color: #2f7051;
     }
 
     .hero-saving-amount {
@@ -238,14 +240,14 @@
       gap: 18px;
     }
 
-    .card-article {
-      background: var(--card-bg);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #f3e1c4;
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
-    }
+	.card-article {
+	  background: var(--card-bg);
+	  border-radius: 20px;
+	  overflow: hidden;
+	  box-shadow: var(--shadow-soft);
+	  border: none;   /* ← 枠線を削除 */
+	  transition: transform 0.16s ease, box-shadow 0.16s ease;
+	}
 
     .card-article > a {
       display: block;
@@ -259,10 +261,11 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
     }
 
+    /* 記事カード背景も緑系グラデに変更 */
     .card-thumb {
       position: relative;
       padding-top: 60%;
-      background: radial-gradient(circle at 10% 0%, #fff7e0, #ffcfa0);
+      background: radial-gradient(circle at 10% 0%, #e8f7ed, #c9efd7);
       overflow: hidden;
     }
 
@@ -311,6 +314,7 @@
       margin-top: 2px;
     }
 
+    /* 「続きを読む」テキストも緑系に */
     .card-readmore {
       margin-top: 8px;
       font-size: 11px;
@@ -318,7 +322,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      color: #c7742f;
+      color: #2f7051;
     }
 
     .card-readmore::after {
@@ -339,7 +343,7 @@
       }
 
       .hero-visual {
-        order: -1; /* スマホではビジュアルを上に */
+        order: -1;
       }
 
       .card-list {
@@ -348,30 +352,27 @@
     }
   </style>
 </head>
-<body>
-  <!-- ===== ヘッダー（中身はそのまま） ===== -->
-<header>
-  <div class="container">
-    <!-- 上段：ロゴ1行目 + ナビ -->
-    <div class="header-top">
-      <a href="index.html" class="logo-row">
-        <div class="logo-mark">￥</div>
-        <div class="logo-text-main">節約スタジオ</div>
-      </a>
-      <nav>
-        <a href="#hero">ホーム</a>
-        <a href="#for-beginner">はじめての方へ</a>
-        <a href="#latest">節約アイデア</a>
-        <a href="#profile">プロフィール</a>
-      </nav>
-    </div>
 
-    <!-- 下段：サブコピーだけ1行で表示 -->
-    <div class="logo-text-sub">
-      無理なく続く、お金との付き合い方
+<body>
+  <!-- ▼ 共通ヘッダー ▼ -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo-row">
+          <img src="img/logo-setsuyaku-studio-header.png" alt="節約スタジオ" class="site-logo">
+        </a>
+
+        <nav>
+          <a href="#hero">ホーム</a>
+          <a href="#for-beginner">はじめての方へ</a>
+          <a href="#latest">節約アイデア</a>
+          <a href="#profile">プロフィール</a>
+        </nav>
+      </div>
+
+      <p class="logo-text-sub">無理なく続く、お金との付き合い方</p>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- ===== ヒーローセクション ===== -->
   <main>
@@ -457,7 +458,6 @@
             <a href="article/conveni.html">
               <div class="card-thumb">
                 <span class="card-label">食費</span>
-                <!-- <img src="images/conveni-saving.jpg" alt="コンビニ節約のイメージ"> -->
               </div>
               <div class="card-body">
                 <h3 class="card-title">
@@ -477,7 +477,6 @@
             <a href="#">
               <div class="card-thumb">
                 <span class="card-label">固定費</span>
-                <!-- <img src="images/communication-fee.jpg" alt="通信費の見直しイメージ"> -->
               </div>
               <div class="card-body">
                 <h3 class="card-title">
@@ -497,7 +496,6 @@
             <a href="#">
               <div class="card-thumb">
                 <span class="card-label">暮らし</span>
-                <!-- <img src="images/life-items.jpg" alt="一人暮らしアイテムのイメージ"> -->
               </div>
               <div class="card-body">
                 <h3 class="card-title">
@@ -518,7 +516,7 @@
 
   <footer>
     <div class="container">
-      &copy; 節約スタジオ / 無理せず続く、お金との付き合い方
+      &copy; 節約スタジオ / 無理なく続く、お金の付き合い方
     </div>
   </footer>
 </body>
