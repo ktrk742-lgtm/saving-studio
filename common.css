@@ -134,14 +134,55 @@ footer {
 
 
 /* =========================
-   スマホ対応（共通）
+   スマホ用レイアウト調整
    ========================= */
-
 @media (max-width: 768px) {
-  .site-logo {
-    height: 32px;  /* スマホは少し小さく */
+
+  /* ヘッダーをコンパクトに */
+  header {
+    height: auto;              /* 固定高さをやめる */
   }
 
-  /* 必要なら、スマホではキャッチコピー非表示にもできる */
-  /* .logo-text-sub { display: none; } */
+  header .container {
+    padding: 4px 10px;
+  }
+
+  .header-top {
+    padding: 0;
+    height: auto;
+  }
+
+  .logo-row {
+    padding-top: 0;
+  }
+
+  .site-logo {
+    height: 30px;              /* ロゴを少し小さく */
+    width: auto;
+  }
+
+  .logo-text-sub {
+    font-size: 11px;
+    margin: 2px 0 6px;
+    padding-left: 0;           /* 左に詰めて段落ちしにくく */
+  }
+
+  /* ナビ（ホーム／はじめての方へ…）を詰める */
+  nav {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  header nav a {
+    padding: 0 6px;
+    height: 28px;
+  }
+
+  /* 固定ヘッダーにかぶらないよう本文に余白 */
+  main {
+    padding-top: 80px;         /* 足りなければ 88px くらいまで増やす */
+  }
+
+  /* トップページのヒーローとカードも1列に*
+
 }
