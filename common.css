@@ -75,13 +75,25 @@ nav {
   font-size: 14px;
 }
 
-nav a {
+/* 通常 */
+nav a,
+nav a:visited {
   padding: 4px 0;
   position: relative;
-  color: var(--text-main);      /* 紫リンクを上書き */
-  text-decoration: none;        /* 下線を消す */
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
+/* ★ホバー（未訪問 + 訪問済みの両方）*/
+nav a:hover,
+nav a:visited:hover,
+nav a:focus-visible {
+  color: var(--accent) !important;   /* ← 色強制変更 */
+  opacity: 0.9;
+}
+
+/* 下線アニメーション */
 nav a::after {
   content: "";
   position: absolute;
@@ -94,9 +106,12 @@ nav a::after {
   transition: width 0.2s ease;
 }
 
-nav a:hover::after {
+nav a:hover::after,
+nav a:visited:hover::after,
+nav a:focus-visible::after {
   width: 100%;
 }
+
 
 /* サブコピーと同じ行にCTAボタンを置きたくなった時用 */
 .header-cta {
