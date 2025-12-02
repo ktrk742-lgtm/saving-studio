@@ -3,84 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プロフィール｜節約スタジオ</title>
+  <title>節約アイデア集｜節約スタジオ</title>
 
   <!-- 共通フォント＆CSS -->
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="common.css" />
-
-  <!-- ▼ 記事ページ共通スタイル（テンプレ） -->
-  <style>
-    main {
-      padding: 60px 0 42px;
-    }
-    main .container {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .article-card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-      border: none;
-      padding: 26px 20px 32px;
-    }
-    @media (min-width: 768px) {
-      .article-card {
-        padding: 32px 32px 40px;
-      }
-    }
-
-    h1 {
-      font-size: 1.6rem;
-      margin-top: 0;
-      margin-bottom: 1.2em;
-      font-weight: 700;
-      color: #2f7051;
-      border-left: 6px solid #6bbe92;
-      padding-left: 12px;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 2.4em;
-      margin-bottom: 0.8em;
-      font-weight: 700;
-      color: #2f7051;
-      border-bottom: 2px solid #dff2e7;
-      padding-bottom: 4px;
-    }
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1.8em;
-      padding: 8px 12px;
-      background: #e8f7ed;
-      border-left: 5px solid #6bbe92;
-      border-radius: 6px;
-      font-weight: 600;
-      color: #2f7051;
-    }
-    p {
-      margin: 1em 0;
-      font-size: 0.98rem;
-      color: #444;
-      line-height: 1.9;
-    }
-    ul,
-    ol {
-      margin: 1em 0 1em 1.4em;
-      font-size: 0.96rem;
-    }
-    li {
-      margin-bottom: 0.4em;
-    }
-    strong {
-      background: linear-gradient(transparent 60%, #dff2e7 60%);
-      font-weight: 700;
-    }
-  </style>
+  <link rel="stylesheet" href="css/common.css" />
+  <!-- 節約アイデア一覧ページ専用CSS -->
+  <link rel="stylesheet" href="css/ideas.css" />
 </head>
 
 <body>
@@ -88,14 +20,14 @@
   <header>
     <div class="container">
       <div class="header-top">
-        <a href="../index.html" class="logo-row">
+        <a href="index.html" class="logo-row">
           <img src="img/logo-setsuyaku-studio-header.png" alt="節約スタジオ" class="site-logo">
         </a>
 
         <nav>
           <a href="index.html">ホーム</a>
           <a href="for-beginner.html">はじめての方へ</a>
-          <a href="setsuyaku-ideas.html">節約アイデア</a>
+          <a href="setsuyaku-ideas.html" class="active">節約アイデア</a>
           <a href="profile.html">プロフィール</a>
         </nav>
       </div>
@@ -104,101 +36,98 @@
   </header>
 
   <main>
-    <div class="container">
-      <article class="article-card">
-      
-<section class="ideas-hero">
-  <div class="container">
-    <h1 class="page-title">節約アイデア集</h1>
-    <p class="page-lead">
-      「今日からできる小さな節約」をテーマに、<br>
-      コンビニ・固定費・日用品などのアイデアをまとめました。
-    </p>
+    <!-- ▼ 上部の説明エリア -->
+    <section class="ideas-hero">
+      <div class="container">
+        <h1 class="page-title">節約アイデア集</h1>
+        <p class="page-lead">
+          「今日からできる小さな節約」をテーマに、<br>
+          コンビニ・固定費・日用品などのアイデアをまとめました。
+        </p>
 
-    <!-- カテゴリへの簡易リンク（必要なければ削除OK） -->
-    <div class="ideas-category-links">
-      <a href="#cat-conveni">コンビニ</a>
-      <a href="#cat-fixed">固定費</a>
-      <a href="#cat-life">暮らし</a>
-    </div>
-  </div>
-</section>
+        <div class="ideas-category-links">
+          <a href="#cat-conveni">コンビニ</a>
+          <a href="#cat-fixed">固定費</a>
+          <a href="#cat-life">暮らし</a>
+        </div>
+      </div>
+    </section>
 
-<section class="ideas-cards">
-  <div class="container">
+    <!-- ▼ カード一覧エリア -->
+    <section class="ideas-cards">
+      <div class="container">
 
-    <div class="ideas-card-grid">
+        <div class="ideas-card-grid">
 
-      <!-- カード1：コンビニコーヒー -->
-      <article class="idea-card idea-card-food" id="cat-conveni">
-        <a href="articles/conveni-drink.html">
-          <div class="idea-card-thumb">
-            <span class="idea-card-label">食費</span>
-          </div>
-          <div class="idea-card-content">
-            <h2 class="idea-card-title">
-              毎朝のコンビニコーヒーをやめずに月3,000円浮かすコツ
-            </h2>
-            <div class="idea-card-meta">
-              <span>読む目安：3分</span>
-            </div>
-            <p class="idea-card-excerpt">
-              「完全にやめる」のではなく、回数を決めて楽しみながら節約する方法を紹介します。
-            </p>
-            <span class="idea-card-more">続きを読む</span>
-          </div>
-        </a>
-      </article>
+          <!-- カード1：コンビニコーヒー -->
+          <article class="idea-card idea-card-food" id="cat-conveni">
+            <a href="articles/conveni-drink.html">
+              <div class="idea-card-thumb">
+                <span class="idea-card-label">食費</span>
+              </div>
+              <div class="idea-card-content">
+                <h2 class="idea-card-title">
+                  毎朝のコンビニコーヒーをやめずに月3,000円浮かすコツ
+                </h2>
+                <div class="idea-card-meta">
+                  <span>読む目安：3分</span>
+                </div>
+                <p class="idea-card-excerpt">
+                  「完全にやめる」のではなく、回数を決めて楽しみながら節約する方法を紹介します。
+                </p>
+                <span class="idea-card-more">続きを読む</span>
+              </div>
+            </a>
+          </article>
 
-      <!-- カード2：スマホ料金 -->
-      <article class="idea-card idea-card-fixed" id="cat-fixed">
-        <a href="articles/fixed-cost-phone.html">
-          <div class="idea-card-thumb">
-            <span class="idea-card-label">固定費</span>
-          </div>
-          <div class="idea-card-content">
-            <h2 class="idea-card-title">
-              スマホ料金を月2,000円台にするチェックポイント3つ
-            </h2>
-            <div class="idea-card-meta">
-              <span>読む目安：5分</span>
-            </div>
-            <p class="idea-card-excerpt">
-              格安SIMに変える前に見ておきたい「データ量」「通話」「家のWi-Fi」のバランスを解説します。
-            </p>
-            <span class="idea-card-more">続きを読む</span>
-          </div>
-        </a>
-      </article>
+          <!-- カード2：スマホ料金 -->
+          <article class="idea-card idea-card-fixed" id="cat-fixed">
+            <a href="articles/fixed-cost-phone.html">
+              <div class="idea-card-thumb">
+                <span class="idea-card-label">固定費</span>
+              </div>
+              <div class="idea-card-content">
+                <h2 class="idea-card-title">
+                  スマホ料金を月2,000円台にするチェックポイント3つ
+                </h2>
+                <div class="idea-card-meta">
+                  <span>読む目安：5分</span>
+                </div>
+                <p class="idea-card-excerpt">
+                  格安SIMに変える前に見ておきたい「データ量」「通話」「家のWi-Fi」のバランスを解説します。
+                </p>
+                <span class="idea-card-more">続きを読む</span>
+              </div>
+            </a>
+          </article>
 
-      <!-- カード3：買い物メモ -->
-      <article class="idea-card idea-card-life" id="cat-life">
-        <a href="articles/super-saving.html">
-          <div class="idea-card-thumb">
-            <span class="idea-card-label">暮らし</span>
-          </div>
-          <div class="idea-card-content">
-            <h2 class="idea-card-title">
-              一人暮らしでもムダ買いしない「買い物メモ」の作り方
-            </h2>
-            <div class="idea-card-meta">
-              <span>読む目安：4分</span>
-            </div>
-            <p class="idea-card-excerpt">
-              安いからといって買いすぎないための、シンプルなメモのルールを紹介します。
-            </p>
-            <span class="idea-card-more">続きを読む</span>
-          </div>
-        </a>
-      </article>
+          <!-- カード3：買い物メモ -->
+          <article class="idea-card idea-card-life" id="cat-life">
+            <a href="articles/super-saving.html">
+              <div class="idea-card-thumb">
+                <span class="idea-card-label">暮らし</span>
+              </div>
+              <div class="idea-card-content">
+                <h2 class="idea-card-title">
+                  一人暮らしでもムダ買いしない「買い物メモ」の作り方
+                </h2>
+                <div class="idea-card-meta">
+                  <span>読む目安：4分</span>
+                </div>
+                <p class="idea-card-excerpt">
+                  安いからといって買いすぎないための、シンプルなメモのルールを紹介します。
+                </p>
+                <span class="idea-card-more">続きを読む</span>
+              </div>
+            </a>
+          </article>
 
-      <!-- 記事が増えたら、↑の article をコピペして追加するだけ -->
+          <!-- ↑ 記事が増えたら、この article をコピペして追加 -->
 
-    </div>
-  </div>
-</section>
-</main>
-
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ▼ 共通フッター ▼ -->
   <footer>

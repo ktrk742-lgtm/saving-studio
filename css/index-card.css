@@ -1,0 +1,118 @@
+    /* ===== 最新記事カード ===== */
+    .section-latest {
+      padding: 0 0 40px;
+    }
+
+    .section-heading {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-heading::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent2);
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+	.card-article {
+	  background: var(--card-bg);
+	  border-radius: 20px;
+	  overflow: hidden;
+	  box-shadow: var(--shadow-soft);
+	  border: none;   /* ← 枠線を削除 */
+	  transition: transform 0.16s ease, box-shadow 0.16s ease;
+	}
+
+    .card-article > a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    .card-article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 記事カード背景も緑系グラデに変更 */
+    .card-thumb {
+      position: relative;
+      padding-top: 60%;
+      background: radial-gradient(circle at 10% 0%, #e8f7ed, #c9efd7);
+      overflow: hidden;
+    }
+
+    .card-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-label {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2f7051;
+      border: 1px solid rgba(107, 190, 146, 0.35);
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 2px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .card-desc {
+      font-size: 12.5px;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    /* 「続きを読む」テキストも緑系に */
+    .card-readmore {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #2f7051;
+    }
+
+    .card-readmore::after {
+      content: "›";
+      font-size: 12px;
+      transform: translateY(0.5px);
+    }

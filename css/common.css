@@ -1,5 +1,5 @@
 /* =========================
-   ヘッダー（共通）
+   ベース & 共通レイアウト
    ========================= */
 
 /* アンカーリンクで飛んだときに、ヘッダーに隠れないよう余白をとる */
@@ -14,7 +14,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 
 /* ページ全体でタイトル位置を揃える用の基本値 */
 main {
@@ -32,6 +31,28 @@ body {
   padding: 0;
 }
 
+/* コンテナ共通 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/* 全ページ共通の左右余白 */
+main .container,
+header .container,
+footer .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+/* =========================
+   ヘッダー（共通）
+   ========================= */
+
 /* 固定ヘッダー */
 header {
   background: #5CC78F; /* 好みに応じて調整できます */
@@ -46,32 +67,13 @@ header {
   padding: 0;
 }
 
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  /* padding はここでは付けない */
-}
-
-
-/* container の余白をゼロに */
-header .container {
-  padding: 0 20px !important; 
-}
-
-main .container,
-footer .container {
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-}
-
 /* 上段：ロゴ + ナビ */
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 40px;              /* ロゴの高さと揃えて安定 */
-  padding: 0 20px;           /* ★ 左右20pxに固定（ロゴとナビを揃える） */
+  padding: 0 20px;           /* 左右20pxに固定（ロゴとナビを揃える） */
 }
 
 /* ロゴ行 */
@@ -88,12 +90,12 @@ footer .container {
   width: auto;
 }
 
-/* キャッチコピー（ロゴの下） */
+/* キャッチコピー（PC用：ロゴの下） */
 .logo-text-sub {
   font-size: 13px;
   color: var(--text-sub);
   margin: 8px 0 0;           /* ロゴ行との間の上下バランス（6px推奨） */
-  padding-left: 20px;        /* ★ 左端をロゴと完全に揃える */
+  padding-left: 20px;        /* 左端をロゴと完全に揃える */
   line-height: 1.4;
 }
 
@@ -102,7 +104,7 @@ nav {
   display: flex;
   gap: 18px;
   font-size: 14px;
-  margin-top: 26px;   /* ★ ナビを少し下に */
+  margin-top: 26px;   /* ナビを少し下に */
 }
 
 /* --- Navi Clean Styling --- */
@@ -141,188 +143,6 @@ header nav a.active {
   display: none;
 }
 
-/* =========================
-   節約アイデア一覧（カード）
-   ========================= */
-
-/* 節約アイデア集ページの左右余白をプロフィールと統一する */
-.ideas-hero,
-.ideas-cards {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.ideas-hero .container,
-.ideas-cards .container {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-
-.page-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.page-lead {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.8;
-}
-
-/* カテゴリリンク */
-.ideas-category-links {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 13px;
-}
-
-.ideas-category-links a {
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #3CB371;
-  color: #3CB371;
-  text-decoration: none;
-}
-
-/* グリッド全体 */
-.ideas-cards {
-  padding: 15px 15px 40px;
-}
-
-.ideas-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* PCで3列 */
-  gap: 24px;
-}
-
-/* カード本体 */
-.idea-card {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e5f2ea;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.idea-card a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-}
-
-/* 上の色付きエリア */
-.idea-card-thumb {
-  background: #e4f8ee; /* 薄いミント */
-  height:140px;
-  position: relative;
-}
-
-.idea-card-label {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #3CB371;
-  border: 1px solid rgba(0,0,0,0.04);
-}
-
-/* カテゴリごとに少し色味を変えたい場合 */
-.idea-card-food .idea-card-thumb {
-  background: #e4f8ee;
-}
-.idea-card-fixed .idea-card-thumb {
-  background: #e4f1fb;
-}
-.idea-card-life .idea-card-thumb {
-  background: #fff5e3;
-}
-
-/* 下のテキスト部分 */
-.idea-card-content {
-  padding: 16px 18px 18px;
-}
-
-.idea-card-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.6;
-  margin-bottom: 6px;
-}
-
-.idea-card-meta {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 8px;
-}
-
-.idea-card-excerpt {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.idea-card-more {
-  font-size: 12px;
-  color: #3CB371;
-  font-weight: 600;
-}
-
-
-
-/* ホバー時 */
-.idea-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* =========================
-   レスポンシブ
-   ========================= */
-
-/* タブレット：2列 */
-@media (max-width: 1024px) {
-  .ideas-card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* スマホ：1列 */
-@media (max-width: 640px) {
-  .ideas-hero {
-    padding: 24px 12px 4px;
-  }
-
-  .page-title {
-    font-size: 22px;
-  }
-
-  .page-lead {
-    font-size: 13px;
-  }
-
-  .ideas-cards {
-    padding: 12px 12px 32px;
-  }
-
-  .ideas-card-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .idea-card-thumb {
-    height: 100px;
-  }
-}
 
 /* =========================
    フッター（共通）
@@ -335,9 +155,8 @@ footer {
   font-size: 12px;
   color: #fff;
   text-align: center;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.596);
 }
-
 
 
 /* =========================

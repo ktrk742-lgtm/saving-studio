@@ -10,89 +10,31 @@
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/article.css" />
+    
+    <!-- ▼ 共通ヘッダー ▼ -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo-row">
+          <img src="img/logo-setsuyaku-studio-header.png" alt="節約スタジオ" class="site-logo">
+        </a>
 
-  <!-- 「はじめての方へ」専用スタイル（余白は記事ページと揃える） -->
+        <nav>
+          <a href="index.html">ホーム</a>
+          <a href="for-beginner.html" class="active">はじめての方へ</a>
+          <a href="setsuyaku-ideas.html">節約アイデア</a>
+          <a href="profile.html">プロフィール</a>
+        </nav>
+      </div>
+      <p class="logo-text-sub">無理なく続く、お金との付き合い方</p>
+    </div>
+  </header>
+  
+  <!-- はじめての方へ ページ専用スタイル -->
   <style>
-    /* ===== レイアウト ===== */
-    main {
-      padding: 60px 0 42px;   /* 記事ページと同じくらいの上下余白 */
-    }
-
-    main .container {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    .article-card {
-      background: var(--card-bg, #ffffff);
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft, 0 4px 14px rgba(0,0,0,0.04));
-      border: none;
-      padding: 26px 20px 32px;
-    }
-
-    @media (min-width: 768px) {
-      .article-card {
-        padding: 32px 32px 40px;
-      }
-    }
-
-    /* ===== タイポ（プロフィール・記事と同じテイスト） ===== */
-    h1 {
-      font-size: 1.6rem;
-      margin-top: 0;
-      margin-bottom: 1.5em;
-      font-weight: 700;
-      color: #2f7051;
-      border-left: 6px solid #6bbe92;
-      padding-left: 12px;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 2.4em;
-      margin-bottom: 0.8em;
-      font-weight: 700;
-      color: #2f7051;
-      border-bottom: 2px solid #dff2e7;
-      padding-bottom: 4px;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1.6em;
-      padding: 8px 12px;
-      background: #e8f7ed;
-      border-left: 5px solid #6bbe92;
-      border-radius: 6px;
-      font-weight: 600;
-      color: #2f7051;
-    }
-
-    p {
-      margin: 1em 0;
-      font-size: 0.98rem;
-      color: #444;
-      line-height: 1.9;
-    }
-
-    ul,
-    ol {
-      margin: 1em 0 1em 1.4em;
-      font-size: 0.96rem;
-    }
-
-    li {
-      margin-bottom: 0.4em;
-    }
-
-    strong {
-      background: linear-gradient(transparent 60%, #dff2e7 60%);
-      font-weight: 700;
-    }
-
-    /* ステップ部分のボックス */
+    /* ステップ部分のボックス（前のコードから引き継ぎ） */
     .beginner-step-list {
       margin-top: 1.2em;
       display: flex;
@@ -155,24 +97,7 @@
 </head>
 
 <body>
-  <!-- ▼ 共通ヘッダー ▼ -->
-  <header>
-    <div class="container">
-      <div class="header-top">
-        <a href="index.html" class="logo-row">
-          <img src="img/logo-setsuyaku-studio-header.png" alt="節約スタジオ" class="site-logo">
-        </a>
 
-        <nav>
-          <a href="index.html">ホーム</a>
-          <a href="for-beginner.html" class="active">はじめての方へ</a>
-          <a href="setsuyaku-ideas.html">節約アイデア</a>
-          <a href="profile.html">プロフィール</a>
-        </nav>
-      </div>
-      <p class="logo-text-sub">無理なく続く、お金との付き合い方</p>
-    </div>
-  </header>
 
   <!-- ▼ はじめての方へ 本文 ▼ -->
   <main>
@@ -192,22 +117,22 @@
         </p>
 
         <p>
-          このページでは、
-          <strong>・どんなサイトなのか</strong>、
-          <strong>・どんな人に向いているのか</strong>、
+          このページでは、<br>
+          <strong>・どんなサイトなのか</strong>、<br>
+          <strong>・どんな人に向いているのか</strong>、<br>
           <strong>・最初に何から読めばいいか</strong> を簡単に紹介します。
         </p>
 
         <h2>このサイトで届けたいこと</h2>
 
         <p>
-          節約というと、
-          「外食禁止」「飲み会NG」「趣味も削る」…といった、
+          節約というと、<br>
+          「外食禁止」「飲み会NG」「趣味も削る」…といった、<br>
           <strong>ガマン前提のイメージ</strong>が強いかもしれません。
         </p>
 
         <p>
-          でも、そうやって一気に生活を変えようとすると、
+          でも、そうやって一気に生活を変えようとすると、<br>
           どうしても
           <strong>「反動でドカンとお金を使ってしまう」</strong>
           ことが多いと感じています。
@@ -237,9 +162,7 @@
           <li>家計簿アプリは入れたものの、<strong>細かく入力するのが続かなかった方</strong></li>
         </ul>
 
-        <p>
-          逆に、
-        </p>
+        <p>逆に、</p>
 
         <ul>
           <li>短期間でガッツリ貯金したい</li>
@@ -248,3 +171,39 @@
 
         <p>
           といった<strong>攻めのマネー術</strong>をメインに探している方には、少し物足りないかもしれません。
+        </p>
+
+        <h2>このページの次におすすめの読み方</h2>
+
+        <div class="beginner-step-list">
+          <div class="beginner-step">
+            <div class="beginner-step-title">STEP1：まずはサイトの雰囲気を知る</div>
+            <p>トップページの「最近の節約アイデア」から、気になる記事を1つ選んで読んでみてください。</p>
+          </div>
+          <div class="beginner-step">
+            <div class="beginner-step-title">STEP2：自分に近いテーマから1つだけ試す</div>
+            <p>コンビニ・固定費・暮らしの中から、「これならできそう」と思うものを1つだけ選んで取り入れてみましょう。</p>
+          </div>
+          <div class="beginner-step">
+            <div class="beginner-step-title">STEP3：半年〜1年くらいの長い目で見る</div>
+            <p>すぐに大きな変化を求めるのではなく、「なんとなく前よりお金が残っているかも」くらいの変化を目標にしてもらえたらうれしいです。</p>
+          </div>
+        </div>
+
+        <div class="beginner-links">
+          <a href="setsuyaku-ideas.html" class="btn-outline">節約アイデア集を見る</a>
+          <a href="profile.html" class="btn-outline">運営者プロフィールを読む</a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ▼ 共通フッター ▼ -->
+  <footer>
+    <div class="container">
+      &copy; 節約スタジオ / 無理なく続く、お金の付き合い方
+    </div>
+  </footer>
+</body>
+</html>
