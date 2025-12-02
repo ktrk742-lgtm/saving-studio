@@ -2,6 +2,30 @@
    ヘッダー（共通）
    ========================= */
 
+/* アンカーリンクで飛んだときに、ヘッダーに隠れないよう余白をとる */
+#hero,
+#for-beginner,
+#latest,
+#profile {
+  scroll-margin-top: 90px;   /* ヘッダーの高さに合わせて 80〜100px で調整OK */
+}
+
+/* ついでにスクロールをなめらかに */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ページ全体でタイトル位置を揃える用の基本値 */
+main {
+  padding-top: 80px;
+}
+
+/* 記事カードは見た目用だけに使う（上の余白は増やさない） */
+.article-card {
+  padding: 24px 20px 32px;
+}
+
 /* ブラウザのデフォルト余白を消す */
 body {
   margin: 0;
@@ -118,6 +142,189 @@ header nav a.active {
 }
 
 /* =========================
+   節約アイデア一覧（カード）
+   ========================= */
+
+/* 節約アイデア集ページの左右余白をプロフィールと統一する */
+.ideas-hero,
+.ideas-cards {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.ideas-hero .container,
+.ideas-cards .container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.page-lead {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* カテゴリリンク */
+.ideas-category-links {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ideas-category-links a {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #3CB371;
+  color: #3CB371;
+  text-decoration: none;
+}
+
+/* グリッド全体 */
+.ideas-cards {
+  padding: 15px 15px 40px;
+}
+
+.ideas-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PCで3列 */
+  gap: 24px;
+}
+
+/* カード本体 */
+.idea-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5f2ea;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.idea-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+/* 上の色付きエリア */
+.idea-card-thumb {
+  background: #e4f8ee; /* 薄いミント */
+  height:140px;
+  position: relative;
+}
+
+.idea-card-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #3CB371;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* カテゴリごとに少し色味を変えたい場合 */
+.idea-card-food .idea-card-thumb {
+  background: #e4f8ee;
+}
+.idea-card-fixed .idea-card-thumb {
+  background: #e4f1fb;
+}
+.idea-card-life .idea-card-thumb {
+  background: #fff5e3;
+}
+
+/* 下のテキスト部分 */
+.idea-card-content {
+  padding: 16px 18px 18px;
+}
+
+.idea-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.idea-card-meta {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.idea-card-excerpt {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.idea-card-more {
+  font-size: 12px;
+  color: #3CB371;
+  font-weight: 600;
+}
+
+
+
+/* ホバー時 */
+.idea-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   レスポンシブ
+   ========================= */
+
+/* タブレット：2列 */
+@media (max-width: 1024px) {
+  .ideas-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* スマホ：1列 */
+@media (max-width: 640px) {
+  .ideas-hero {
+    padding: 24px 12px 4px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .page-lead {
+    font-size: 13px;
+  }
+
+  .ideas-cards {
+    padding: 12px 12px 32px;
+  }
+
+  .ideas-card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .idea-card-thumb {
+    height: 100px;
+  }
+}
+
+/* =========================
    フッター（共通）
    ========================= */
 
@@ -138,43 +345,61 @@ footer {
    ========================= */
 @media (max-width: 768px) {
 
-  /* ヘッダー全体を縦配置に */
+  /* ヘッダー全体をコンパクトに */
+  header {
+    padding: 0;
+  }
+
+  /* ロゴ行（ロゴ + サブコピー） */
   .header-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
-    padding: 10px 12px;
+    padding: 6px 12px;   /* ← これでかなり薄くなる */
+    gap: 4px;
     height: auto !important;
   }
 
-  /* ロゴ */
+  /* ロゴサイズ縮小 */
   .site-logo {
-    height: 32px;
+    height: 26px;   /* ← 32px → 26px に縮小 */
+    width: auto;
   }
 
-  /* サブコピー（ロゴの下） */
+  /* 元のサブコピーは非表示 */
   .logo-text-sub {
-    padding-left: 0;
-    font-size: 12px;
-    margin-bottom: 4px;
+    display: none;
   }
 
-  /* ナビ（ホーム／はじめての方へ／〜） */
+  /* ロゴの横に表示するサブコピー（スマホ専用） */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .logo-row::after {
+    content: "無理なく続く、お金との付き合い方";
+    font-size: 10px;  /* 小さめにして高さを減らす */
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  /* ナビ（ホーム、はじめての方…） */
   nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 12px;
     gap: 0;
+    margin-top: 0;
   }
 
   header nav a {
-    padding: 6px 4px;
-    height: auto;
+    padding: 4px 2px;  /* ← 高さ圧縮 */
   }
 
-  /* 固定ヘッダーで本文が埋もれないように */
+  /* 本文がヘッダーに隠れないように調整（薄くしたので下げ幅を減らす） */
   main {
-    padding-top: 140px !important;   /* ← これが最重要。絶対に効く。 */
+    padding-top: 90px !important;   /* ← 必要に応じて 85〜95px で微調整 */
   }
 }

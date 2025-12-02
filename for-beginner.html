@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>はじめての方へ｜節約スタジオ</title>
+
+  <!-- 共通フォント＆CSS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="common.css" />
+
+  <!-- 「はじめての方へ」専用スタイル（余白は記事ページと揃える） -->
+  <style>
+    /* ===== レイアウト ===== */
+    main {
+      padding: 60px 0 42px;   /* 記事ページと同じくらいの上下余白 */
+    }
+
+    main .container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .article-card {
+      background: var(--card-bg, #ffffff);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft, 0 4px 14px rgba(0,0,0,0.04));
+      border: none;
+      padding: 26px 20px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .article-card {
+        padding: 32px 32px 40px;
+      }
+    }
+
+    /* ===== タイポ（プロフィール・記事と同じテイスト） ===== */
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 1.5em;
+      font-weight: 700;
+      color: #2f7051;
+      border-left: 6px solid #6bbe92;
+      padding-left: 12px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2.4em;
+      margin-bottom: 0.8em;
+      font-weight: 700;
+      color: #2f7051;
+      border-bottom: 2px solid #dff2e7;
+      padding-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1.6em;
+      padding: 8px 12px;
+      background: #e8f7ed;
+      border-left: 5px solid #6bbe92;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #2f7051;
+    }
+
+    p {
+      margin: 1em 0;
+      font-size: 0.98rem;
+      color: #444;
+      line-height: 1.9;
+    }
+
+    ul,
+    ol {
+      margin: 1em 0 1em 1.4em;
+      font-size: 0.96rem;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    strong {
+      background: linear-gradient(transparent 60%, #dff2e7 60%);
+      font-weight: 700;
+    }
+
+    /* ステップ部分のボックス */
+    .beginner-step-list {
+      margin-top: 1.2em;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .beginner-step {
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #f7fbf9;
+      border: 1px solid #e1f1e8;
+    }
+
+    .beginner-step-title {
+      font-weight: 600;
+      color: #2f7051;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .beginner-step p {
+      margin: 0.2em 0 0.4em;
+      font-size: 0.92rem;
+    }
+
+    /* ボタン風リンク */
+    .beginner-links {
+      margin-top: 1.6em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #3CB371;
+      color: #3CB371;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #ffffff;
+      transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: #e4f8ee;
+      color: #2f7051;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 640px) {
+      .beginner-step {
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ▼ 共通ヘッダー ▼ -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo-row">
+          <img src="img/logo-setsuyaku-studio-header.png" alt="節約スタジオ" class="site-logo">
+        </a>
+
+        <nav>
+          <a href="index.html">ホーム</a>
+          <a href="for-beginner.html" class="active">はじめての方へ</a>
+          <a href="setsuyaku-ideas.html">節約アイデア</a>
+          <a href="profile.html">プロフィール</a>
+        </nav>
+      </div>
+      <p class="logo-text-sub">無理なく続く、お金との付き合い方</p>
+    </div>
+  </header>
+
+  <!-- ▼ はじめての方へ 本文 ▼ -->
+  <main>
+    <div class="container">
+      <article class="article-card">
+
+        <h1>はじめての方へ</h1>
+
+        <p>
+          「貯金したい気持ちはあるけれど、<br>
+          我慢ばかりの節約はちょっとしんどい…」
+        </p>
+
+        <p>
+          節約スタジオは、そんな方に向けて、<br>
+          <strong>「無理なく続けられる、お金との付き合い方」</strong>をまとめた小さなWebサイトです。
+        </p>
+
+        <p>
+          このページでは、
+          <strong>・どんなサイトなのか</strong>、
+          <strong>・どんな人に向いているのか</strong>、
+          <strong>・最初に何から読めばいいか</strong> を簡単に紹介します。
+        </p>
+
+        <h2>このサイトで届けたいこと</h2>
+
+        <p>
+          節約というと、
+          「外食禁止」「飲み会NG」「趣味も削る」…といった、
+          <strong>ガマン前提のイメージ</strong>が強いかもしれません。
+        </p>
+
+        <p>
+          でも、そうやって一気に生活を変えようとすると、
+          どうしても
+          <strong>「反動でドカンとお金を使ってしまう」</strong>
+          ことが多いと感じています。
+        </p>
+
+        <p>
+          そこでこのサイトでは、次のようなスタンスで情報をまとめています。
+        </p>
+
+        <ul>
+          <li>「やめる」のではなく、<strong>回数や頻度を調整する</strong>節約</li>
+          <li>生活レベルをあまり落とさず、<strong>気づいたらお金が残っている状態</strong>を目指す</li>
+          <li>今日からできる小さな工夫を、<strong>できるところから少しずつ</strong></li>
+        </ul>
+
+        <p>
+          いきなり完璧を目指すのではなく、<br>
+          <strong>「これなら自分でも続けられそう」</strong>と思えるアイデアだけを選んで試してもらえたらうれしいです。
+        </p>
+
+        <h2>こんな方におすすめです</h2>
+
+        <ul>
+          <li>一人暮らしを始めたばかりで、<strong>毎月の出費の感覚をつかみたい方</strong></li>
+          <li>コンビニや外食をやめるのは嫌だけど、<strong>少しは貯金を増やしたい方</strong></li>
+          <li>「固定費の見直しが大事と言われても、<strong>何から手をつけていいか分からない</strong>」という方</li>
+          <li>家計簿アプリは入れたものの、<strong>細かく入力するのが続かなかった方</strong></li>
+        </ul>
+
+        <p>
+          逆に、
+        </p>
+
+        <ul>
+          <li>短期間でガッツリ貯金したい</li>
+          <li>投資や副業のノウハウを知りたい</li>
+        </ul>
+
+        <p>
+          といった<strong>攻めのマネー術</strong>をメインに探している方には、少し物足りないかもしれません。
