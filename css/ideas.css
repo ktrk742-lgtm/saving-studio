@@ -106,7 +106,7 @@
 
 .idea-card-meta {
   font-size: 11px;
- color: #999;
+  color: #999;
   margin-bottom: 8px;
 }
 
@@ -127,6 +127,12 @@
 .idea-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* アンカーで飛んだとき、ヘッダーに隠れないようにする */
+#article {
+  scroll-margin-top: 70px;  /* ヘッダーの高さに合わせて調整*/
 }
 
 

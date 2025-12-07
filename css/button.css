@@ -1,0 +1,72 @@
+/* ===== フィルタボタンエリア ===== */
+.idea-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+/* ▼ カテゴリー系の共通スタイル（カードラベル＆フィルタボタン） */
+.card-label,
+.filter-btn {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2f7051;
+  border: 1px solid rgba(107, 190, 146, 0.35);
+}
+
+/* カード左上のラベル（今まで通り） */
+.card-label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 11px;
+  padding: 3px 9px;
+}
+
+/* フィルタボタン（共通） */
+.filter-btn {
+  font-size: 13px;
+  line-height: 1;
+  padding: 7px 14px;
+  background: rgba(232, 247, 237, 0.9); /* 少しだけ緑を強めてもOK */
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.08s ease;
+}
+
+/* ホバー時のちょい浮き */
+.filter-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent2);
+}
+
+/* 押されているフィルタ状態 */
+.filter-btn.is-active {
+  background: #e9f7ef;
+  border-color: var(--accent2);
+  color: #176b4d;
+  font-weight: 600;
+}
+
+
+.sort-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent2);
+}
+
+/* スマホ時は少しコンパクトに */
+@media (max-width: 768px) {
+  .idea-filters {
+    gap: 6px;
+  }
+
+  .filter-btn,
+  .sort-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .sort-btn {
+    margin-left: 0;
+  }
+}
